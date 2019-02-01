@@ -538,4 +538,21 @@ Et on passe à la présentation de la vue "show.blade.php"
     @endforeach
 ```
 Vous avez maintenant un crud complet 
-
+### Pagination
+Rien de plus simple dans notre controller dans la fonction index au lieu du "all" nous allons tous simplement le remplacer par "paginate(#), comme ceci :
+```php
+public  function  index()
+{
+	$articles = Article::Paginate(15);
+		return  view ('articles/index',[
+		'articles'=>$articles
+	]);
+}
+```
+et dans notre index en dessous de notre tableau on va prendre en compte la pagination avec links
+```php
+<div>
+    {{$articles->links()}}
+</div>
+```
+Le système de pagination est terminé
