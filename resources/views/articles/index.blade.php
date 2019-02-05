@@ -14,6 +14,7 @@
                     <th>Voir l'article</th>
                     <th>Titre</th>
                     <th>Extrait de l'article</th>
+                    <th>Auteur</th>
                     <th>Date modification</th>
                     <th>Date création</th>
                     <th>Editer</th>
@@ -25,6 +26,7 @@
                         <td><a href="{{ route('show_article', $article->id) }}" class="btn btn-primary">Lire l'article</a></td>
                         <td>{{ $article->name }}</td>
                         <td>{{ $article->extract }}</td>
+                        <td>@if (isset($article->user)){{{$article->user->name}}}@endif</td>
                         <td>{{ $article->updated_at }}</td>
                         <td>{{ $article->created_at }}</td>
                         <td><a href="{{ route('edit_article', $article) }}" class="btn btn-primary">Editer</a></td>

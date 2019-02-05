@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Auth;
 
 class ArticleController extends Controller
 {
@@ -42,6 +43,7 @@ class ArticleController extends Controller
             'name' => $request->input('name'),
             'extract' => $request->input('extract'),
             'content' => $request->input('content'),
+            'user_id' => Auth::user()->id,
         ]);
         return redirect(route('index_article'));
     }
